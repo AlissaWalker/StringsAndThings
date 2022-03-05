@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 
+import java.util.Locale;
+
 /**
  * @author tariq
  */
@@ -15,7 +17,14 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        String[] splitWords = input.split(" ");
+        Integer counter= 0;
+        for (int i = 0; i <splitWords.length ; i++) {
+            if (splitWords[i].substring(splitWords[i].length() - 1).toLowerCase(Locale.ROOT).equals("y") || splitWords[i].substring(splitWords[i].length() - 1).toLowerCase(Locale.ROOT).equals("z")){
+                counter ++;
+            }
+        }
+        return counter;
     }
 
     /**
