@@ -36,8 +36,12 @@ public class StringsAndThings {
      *           removeString("Hello there", "e") //  Should return "Hllo thr"
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
+    //created a new base and set it equal. Replaces the first substring of this string that matches the given regular expression with the given replacement.
     public String removeString(String base, String remove){
-        return null;
+
+        String newBase = base.replace(remove,"");
+
+        return newBase;
     }
 
     /**
