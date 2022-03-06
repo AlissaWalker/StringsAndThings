@@ -1,6 +1,7 @@
 package io.zipcoder;
 
 
+
 import java.util.Locale;
 
 /**
@@ -90,19 +91,45 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
-    public Boolean gIsHappy(String input){
-        return null;
-    }
-
+   public Boolean gIsHappy(String input) {
+       boolean happy = false;
+       char[] words = input.toCharArray();
+       for ( int i = 0; i < words.length; i++){
+           if( (words[i] == 'g') && (words[i+1] == 'g')){
+               happy = true;
+           } else if (i < 0 && (words[i-1] !='g') && (words[i] == 'g') && (words[i+1] != 'g')){
+               happy = false;
+               break;
+           } else {
+           }
+       }
+//        for ( char letter : input.toCharArray())
+//            if (letter.)
+       return happy;
+   }
 
     /**
      * We'll say that a "triple" in a string is a char appearing three times in a row.
      * Return the number of triples in the given string. The triples may overlap.
-     * example :  countTriple("abcXXXabc") // Should return 1
-     *            countTriple("xxxabyyyycd") // Should return 3
+     * example :  countTriple("abcXXXabc") // Should return 1  -----> The X's are the triple
+     *            countTriple("xxxabyyyycd") // Should return 3 ------> 1st tripple is x 2nd triple is Y and #rd triple is Y because it can overlap
      *            countTriple("a") // Should return 0
      */
+    // i is a loop counter ; reference point ; i always changes
     public Integer countTriple(String input){
-        return null;
+        int isTriple =0;
+        //int notTriple =0;
+
+        for(int i=0; i<input.length()-2; i++ ){ //the -2 looks @ the last 2 letters of the size. shortens the lap of the loop at a
+
+            if(input.charAt(i) == input.charAt(i+1) && input.charAt(i+1)== input.charAt(i+2)){ //if 1 letter matches and the 2nd match then the 3rd letter matches is true
+                    isTriple++;                                                                     //it adds 1
+            }
+        }
+
+        return isTriple;
     }
 }
+// given a string reads the char in each string
+//each char that is by itself 3 times return count ++ (count +1)
+//print integer
